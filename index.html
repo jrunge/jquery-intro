@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Getting Started with deck.js</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	
+	<link rel="stylesheet" href="extensions/codemirror/deck.codemirror.css">
+	<link rel="stylesheet" href="extensions/codemirror/themes/default.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<!-- <link rel="stylesheet" id="style-theme-link" href="themes/style/web-2.0.css"> -->
+	<!-- <link rel="stylesheet" id="transition-theme-link" href="themes/transition/horizontal-slide.css"> -->
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="index.css">
+	
+	<script src="modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<!-- <div class="theme-menu">
+	<h2>Themes</h2>	
+	
+	<label for="style-themes">Style:</label>
+	<select id="style-themes">
+		<option selected value="../themes/style/web-2.0.css">Web 2.0</option>
+		<option value="../themes/style/swiss.css">Swiss</option>
+		<option value="../themes/style/neon.css">Neon</option>
+		<option value="">None</option>
+	</select>
+	
+	<label for="transition-themes">Transition:</label>
+	<select id="transition-themes">
+		<option selected value="../themes/transition/horizontal-slide.css">Horizontal Slide</option>
+		<option value="../themes/transition/vertical-slide.css">Vertical Slide</option>
+		<option value="../themes/transition/fade.css">Fade</option>
+		<option value="">None</option>
+	</select>
+</div> -->
+
+<section class="slide" id="title-slide">
+	<h1>Intro to jQuery</h1>
+</section>
+
+<section class="slide" id="what-is-jquery">
+	<h2>What is jQuery?</h2>
+	
+	<blockquote cite="http://jquery.com">
+		<p>jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. <strong>jQuery is designed to change the way that you write JavaScript.</strong></p>
+		<p><cite>jQuery.com</cite></p>
+	</blockquote>
+</section>
+
+<section class="slide" id="why-use-jquery">
+	<h2>Why use jQuery?</h2>
+	<ol>
+		<li class="slide" id="why-document-traversing">
+			<h3>Document Traversing</h3>
+			<p>jQuery streamlines the selection of DOM elements and attribute editing</p>
+		</li>
+		<li class="slide" id="why-event-handling">
+			<h3>Event Handling</h3>
+			<p>jQuery allows you to bind code to specific user actions</p>
+		</li>
+		<li class="slide" id="why-animating">
+			<h3>Animating</h3>
+			<p>jQuery takes the pain out of coding simple or complex animations</p>
+		</li>
+		<li class="slide" id="why-ajax">
+			<h3>Ajax</h3>
+			<p>jQuery wraps communication with the server and handles parsing of response data</p>
+		</li>
+	</ol>
+</section>
+
+<section class="slide" id="selectors-css">
+	<h2> Selectors - CSS </h2>
+
+
+	<!-- <div class="slide" id="selectors-css-html"> -->
+		<div>
+		<h3>HTML</h3>
+		<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<div class="announcement" title="Just Saying Hi!">Hello!</div></textarea></div>
+<br>
+	<div class="slide" id="selectors-css-css">
+		<h3>CSS</h3>
+		<textarea class="code" mode="css">
+#blue-box {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    top: 25px;
+    left: 25px;
+}
+
+div.announcement {
+    font-size: 2em;
+}</textarea></div>
+</section>
+
+<section class="slide" id="selectors-jquery">
+	<h2> Selectors - jQuery </h2>
+
+	<h3>General Form</h3>
+	<p>$( "Selector" )</p>
+	<br>
+	<div class="slide" id="selectors-jquery-html">
+		<!-- <div> -->
+		<h3>HTML</h3>
+		<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<div class="announcement" title="Just Saying Hi!">Hello!</div></textarea></div>
+<br>
+
+	<div class="slide" id="selectors-jquery-jquery">
+	<h3>JS</h3>
+	<textarea class="code" mode="javascript">
+$('#blue-box')
+
+$('div.annoucement')</textarea></div>
+
+</section>
+
+<section class="slide" id="attributes-getting">
+	<h2> Getting Attributes </h2>
+	
+	<!-- <div class="slide" id="selectors-jquery-html"> -->
+		<div>
+		<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<div class="announcement" title="Just Saying Hi!">Hello!</div></textarea></div>
+<br>
+<div class="slide" id="attributes-getting-html-prompt"><p>Get contents of announcement div</p>
+</div>
+	<div class="slide" id="attributes-getting-html"><textarea class="code" mode="javascript">
+var divContent = $('div.annoucement').html();</textarea>
+<br></div>
+<div class="slide" id="attributes-getting-html-return"><p>returns Hello!</p>
+</div>
+<br>
+<div class="slide" id="attributes-getting-title-prompt"><p>Get title of announcement div</p>
+</div>
+<div class="slide" id="attributes-getting-title"><textarea class="code" mode="javascript">
+var divTitle = $('div.annoucement').attr('title');</textarea>
+<br>
+</div>
+<div class="slide" id="attributes-getting-title-return">
+<p>returns Just Saying Hi!</p>
+</div>
+<br>
+<!-- <div class="slide" id="attributes-getting-color"><textarea class="code" mode="javascript">
+var divColor = $('#blue-box').css('background-color');</textarea>
+<br>
+</div>
+<div class="slide" id="attributes-getting-color-return">
+<p>returns blue</p>
+</div> -->
+
+</section>
+
+
+<section class="slide" id="attributes-setting">
+	<h2> Setting Attributes </h2>
+	
+	<!-- <div class="slide" id="selectors-jquery-html"> -->
+		<div>
+		<h3>Original HTML</h3>
+		<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<div class="announcement" title="Just Saying Hi!">Hello!</div></textarea></div>
+<br>
+<div class="slide" id="attributes-setting-html-prompt"><p>Set content of announcement div to Goodbye!</p>
+</div>
+	<div class="slide" id="attributes-setting-html"><textarea class="code" mode="javascript">
+$('div.annoucement').html('Goodbye!');</textarea>
+<br>
+</div>
+<div class="slide" id="attributes-setting-title-prompt"><p>Set title of announcement div to So Long!</p>
+</div>
+	<div class="slide" id="attributes-setting-title"><textarea class="code" mode="javascript">
+$('div.annoucement').attr('title', 'So Long!');</textarea>
+<br><br>
+</div>
+
+<div class="slide" id="attributes-setting-modified">
+	<!-- <div> -->
+	<h3>Result</h3>
+	<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<div class="announcement" title="So Long!">Goodbye!</div></textarea></div>
+
+</section>
+
+<section class="slide" id="events1">
+	<h2> Click Event in jQuery </h2>
+
+	<div class="blue-box"></div>
+	<br>
+	<button>Change Color</button>
+
+</section>
+
+<section class="slide" id="events2">
+	<h2> Click Event in jQuery </h2>
+
+	<div class="red-box"></div>
+	<br>
+	<button>Change Color</button>
+
+</section>
+
+<section class="slide" id="click-setup">
+	<h2> Binding to Click Event - Setup </h2>
+
+	<div class="slide" id="click-setup-css">
+		<h3>CSS</h3>
+		<textarea class="code" mode="css">
+#blue-box {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    top: 25px;
+    left: 25px;
+}</textarea><br><br></div>
+
+<div class="slide" id="click-setup-html">
+	<h3>HTML</h3>
+	<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<button id="change-color">Change Color</button></textarea></div>
+
+</section>
+
+<section class="slide" id="click-jquery">
+	<h2> Binding to Click Event - jQuery </h2>
+
+	<div class="slide" id="click-jquery-function-prompt">
+		<h3>Create a function to change color</h3>
+	</div>
+	<div class="slide" id="click-jquery-function">
+		<textarea class="code" mode="javascript">
+var clickFunction = function() {
+    $('#blue-box').css('background-color','red');
+};</textarea><br><br></div>
+
+<div class="slide" id="click-jquery-binding-prompt">
+	<h3>Bind that function to Change Color button</h3>
+</div>
+<div class="slide" id="click-jquery-binding">
+	<textarea class="code" mode="javascript">
+$('#change-color').bind('click', clickFunction);</textarea><br><br></div>
+
+
+<div class="slide" id="click-jquery-pretty">
+	<h3>Simplify</h3>
+	<textarea class="code" mode="javascript">
+$('#change-color').bind('click', function() {
+    $('#blue-box').css('background-color','red');
+});</textarea></div>
+
+</section>
+
+<section class="slide" id="click-result">
+	<h2> Binding to Click Event - All Code </h2>
+
+	<!-- <div class="slide" id="click-result-css"> -->
+		<div>
+		<h3>CSS</h3>
+		<textarea class="code" mode="css">
+#blue-box {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    top: 25px;
+    left: 25px;
+}</textarea><br></div>
+
+<!-- <div class="slide" id="click-result-html"> -->
+	<div>
+	<h3>HTML</h3>
+	<textarea class="code" mode="htmlmixed">
+<div id="blue-box"></div>
+
+<button id="change-color">Change Color</button></textarea><br></div>
+
+<!-- <div class="slide" id="click-jquery-pretty"> -->
+	<div>
+	<h3>JS</h3>
+	<textarea class="code" mode="javascript">
+$('#change-color').bind('click', function() {
+    $('#blue-box').css('background-color','red');
+});</textarea></div>
+
+</section>
+
+<!--
+<section class="slide" id="textarea-code">
+	<h2> This Code is in a Text Area! </h2>
+	<div><textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">// codemirror demo party!
+var greeter = function(name) {
+return "Why hello there " + name;
+}
+console.log(greeter("Joe"));</textarea></div>
+<br />
+<h3> You can edit it and run it again! Try it! </h3>
+</section>
+
+
+<section class="slide" id="elements-images">
+	<h2>Other Elements: Images</h2>
+	<img src="http://placekitten.com/600/375" alt="Kitties">
+	<pre><code>&lt;img src=&quot;http://placekitten.com/600/375&quot; alt=&quot;Kitties&quot;&gt;</code></pre>
+</section>
+
+<section class="slide" id="elements-blockquotes">
+	<h2>Other Elements: Blockquotes</h2>
+	<blockquote cite="http://example.org">
+		<p>Food is an important part of a balanced diet.</p>
+		<p><cite>Fran Lebowitz</cite></p>
+	</blockquote>
+	<pre><code>&lt;blockquote cite=&quot;http://example.org&quot;&gt;
+  &lt;p&gt;Food is an important part of a balanced diet.&lt;/p&gt;
+  &lt;p&gt;&lt;cite&gt;Fran Lebowitz&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+</section>
+
+
+<section class="slide" id="elements-videos">
+	<h2>Other Elements: Video Embeds</h2>
+	<p>Embed videos from your favorite online video service or with an HTML5 video&nbsp;element.</p>
+	
+	<iframe src="http://player.vimeo.com/video/1063136?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe>
+	
+	<pre><code>&lt;iframe src=&quot;http://player.vimeo.com/video/1063136?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;400&quot; height=&quot;225&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre>
+</section>
+
+<section class="slide" id="digging-deeper">
+	<h2>Digging Deeper</h2>
+	<p>If you want to learn about making your own themes, extending deck.js, and more, check out the&nbsp;<a href="docs/">documentation</a>.</p>
+</section>
+
+-->
+
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+
+<!-- Base codemiror code -->
+<script src="extensions/codemirror/codemirror.js"></script>
+
+<!-- Syntax highlighting Modes -->
+
+<!-- javascript -->
+<script src="extensions/codemirror/mode/javascript/javascript.js"></script>
+
+<!-- html mode (note html mode requires xml, css and javascript) -->
+<script src="extensions/codemirror/mode/xml/xml.js"></script>
+<script src="extensions/codemirror/mode/css/css.js"></script>
+<script src="extensions/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Plugin code -->
+<script src="extensions/codemirror/deck.codemirror.js"></script>
+
+<!-- Specific to this page -->
+<script src="index.js"></script>
+
+</body>
+</html>
